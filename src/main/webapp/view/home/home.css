@@ -1,0 +1,58 @@
+
+.u-button-style {
+    transition-property: background-color, color, border-color;
+    text-decoration: none;
+    margin: 20px;
+    font-size: 1.3rem;
+    color: black;
+    font-family: math;
+}
+.u-nav-link:focus {
+    text-decoration: none;
+}
+.u-nav-item {
+    position: relative;
+}
+.start{
+    display: flex;
+    justify-content: end;
+}
+.u-nav {
+    display: flex;
+    list-style: none;
+    margin: 0px;
+    padding: 5px;
+    margin-right: 25rem;
+    height: 100px;
+    align-items: end;
+}
+
+.u-align-center {
+    text-align: center;
+    color: inherit;
+    display: flex;
+    background: #333333;
+    height: 250px;
+    justify-content: center;
+}
+.u-clearfix:after {
+    clear: both;
+}
+p.u-small-text
+{
+    font-size: 0.875rem;
+    margin-top: 0px;
+    margin-bottom: 20px;
+}
+.u-text {
+    word-wrap: break-word;
+    position: relative;
+}
+.u-button-style-a {
+    transition-property: background-color, color, border-color;
+    text-decoration: none;
+    margin: 40px;
+    font-size: 1.2rem;
+    color: #478ac9;
+    font-family: math;
+}
