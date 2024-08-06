@@ -30,7 +30,7 @@ public class UserDao {
         }
     }
 
-    public static boolean checkAccountSignUpUser(String emailInPut) throws ClassNotFoundException {
+    public static boolean checkAccountsignUpUser(String emailInPut) throws ClassNotFoundException {
         final String CHECK_ACCOUNT_SIGN_UP_USER = System.getenv("CHECK_ACCOUNT_SIGN_UP_USER");
         Class.forName("com.mysql.cj.jdbc.Driver");
         try (Connection conn = DBConnection.getConnection();
@@ -68,7 +68,7 @@ public class UserDao {
         return false;
     }
 
-    public static void addUserInformation(String name, int age, int phoneNumber, String address, String email) {
+    public static void addUserInfomation(String name, int age, int phoneNumber, String address, String email) {
         final String UPDATE_USER_INFORMATION = System.getenv("UPDATE_USER_INFORMATION");
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -89,24 +89,24 @@ public class UserDao {
         }
     }
 
-    public static boolean checkUserInformation(String email) {
-        boolean checkInformation = true;
+    public static boolean checkUserInfomation(String email) {
+        boolean checkInfomation = true;
         final String CHECK_INFORMATION = System.getenv("CHECK_USER_INFORMATION");
         try (Connection connection = DBConnection.getConnection();
-             PreparedStatement statement = connection.prepareStatement(CHECK_INFORMATION)) {
+             PreparedStatement statement = connection.prepareStatement(CHECK_INFORMATION);) {
             statement.setString(1, email);
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
                 String tuoi = resultSet.getString("tuoi");
                 if (tuoi == null) {
-                    checkInformation = false;
-                    return checkInformation;
+                    checkInfomation = false;
+                    return checkInfomation;
                 }
             }
         } catch (SQLException e) {
             throw new RuntimeException("Error executing ", e);
         }
-        return checkInformation;
+        return checkInfomation;
     }
 
 

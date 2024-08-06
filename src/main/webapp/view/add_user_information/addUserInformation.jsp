@@ -2,8 +2,7 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>ADD USER</title>
-    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
+    <title>Title</title>
     <style>
         body {
             display: flex;

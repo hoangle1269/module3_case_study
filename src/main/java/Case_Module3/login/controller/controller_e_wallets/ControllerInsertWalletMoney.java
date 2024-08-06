@@ -11,11 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name ="showWalletInformationWhereId",urlPatterns = "/showWalletInformationWhereId")
-public class ShowWalletInformationWhereId extends HttpServlet {
+@WebServlet(name = "insertWalletMoney", urlPatterns = "/insertWalletMoney")
+public class ControllerInsertWalletMoney extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        int idWallet = Integer.parseInt(req.getParameter("idwallet"));
+        int idWallet = Integer.parseInt(req.getParameter("idWallet"));
         List<WalletDTO> wallet;
         try {
             wallet = EWalletsDao.showWalletInformationWhereId(idWallet);
@@ -23,7 +23,8 @@ public class ShowWalletInformationWhereId extends HttpServlet {
             throw new RuntimeException(e);
         }
         req.setAttribute("wallet", wallet);
-        req.getRequestDispatcher("view/e_wallets/walletInformation.jsp").forward(req, resp);
+        req.getRequestDispatcher("view/e_wallets/rechargeWallet.jsp").forward(req, resp);
 
     }
-}
+    }
+
