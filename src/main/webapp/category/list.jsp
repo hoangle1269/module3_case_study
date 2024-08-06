@@ -49,9 +49,9 @@
     <table>
         <thead>
         <tr>
-            <th>Name</th>
-            <th>Note</th>
-            <th>Action</th>
+            <th style="width: 250px;">Name</th>
+            <th style="width: 250px;">Note</th>
+            <th style="width: 50px;">Action</th>
         </tr>
         </thead>
         <tbody>
@@ -60,9 +60,16 @@
                 <td><c:out value="${category.name}"/></td>
                 <td><c:out value="${category.notes}"/></td>
                 <td>
-                    <a href="/category?action=edit&categoryId=${category.categoryId}">Edit</a> |
-                    <a href="/category?action=delete&categoryId=${category.categoryId}"
-                       onclick="return confirm('Are you sure you want to delete this category?');">Delete</a>
+                    <form action="${pageContext.request.contextPath}/category" method="get" style="display:inline;">
+                        <input type="hidden" name="action" value="edit">
+                        <input type="hidden" name="categoryId" value="${category.categoryId}">
+                        <button type="submit" class="action-button">Edit</button>
+                    </form>
+                    <form action="${pageContext.request.contextPath}/category" method="get" style="display:inline;">
+                        <input type="hidden" name="action" value="delete">
+                        <input type="hidden" name="categoryId" value="${category.categoryId}">
+                        <button type="submit" class="action-button" onclick="return confirm('Are you sure you want to delete this category?');">Delete</button>
+                    </form>
                 </td>
             </tr>
         </c:forEach>

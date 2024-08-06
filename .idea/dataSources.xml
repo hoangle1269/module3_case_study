@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-<<<<<<< Updated upstream
-    <data-source source="LOCAL" name="quan_ly_tai_chinh2@localhost" uuid="8fd17eaf-2a4c-4251-8970-98c20da95f33">
-=======
-    <data-source source="LOCAL" name="quan_ly_tai_chinh" uuid="838be1dc-0d06-4d46-a26e-a739398e572b">
->>>>>>> Stashed changes
+    <data-source source="LOCAL" name="quan_ly_tai_chinh" uuid="43f31edb-7eb4-48dc-931a-86fdd0ca325f">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
@@ -13,6 +9,7 @@
       <jdbc-additional-properties>
         <property name="com.intellij.clouds.kubernetes.db.host.port" />
         <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.resource.type" value="Deployment" />
         <property name="com.intellij.clouds.kubernetes.db.container.port" />
       </jdbc-additional-properties>
       <working-dir>$ProjectFileDir$</working-dir>

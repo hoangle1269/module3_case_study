@@ -1,10 +1,8 @@
-/* General reset and styling */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
 }
 
-/* Navigation Menu */
 .start {
     background-color: #fff;
     border-bottom: 1px solid #ccc;
@@ -42,7 +40,6 @@ body {
     text-align: center;
 }
 
-/* Container and Header */
 .container {
     padding: 20px;
 }
@@ -75,7 +72,7 @@ table {
 th, td {
     padding: 10px;
     border: 1px solid #ccc;
-    text-align: left;
+    text-align: center;
 }
 
 th {
@@ -83,7 +80,6 @@ th {
     color: #0056b3;
 }
 
-/* Footer */
 footer {
     background-color: #333;
     color: white;
