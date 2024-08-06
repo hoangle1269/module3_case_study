@@ -108,8 +108,8 @@ public class CategoryService extends HttpServlet {
     }
 
     private void deleteCategory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {
-        int id = Integer.parseInt(request.getParameter("categoryId"));
-        categoryDAO.deleteCategory(id);
+        int categoryId = Integer.parseInt(request.getParameter("categoryId"));
+        categoryDAO.deleteCategory(categoryId);
         List<Category> categoryList = categoryDAO.selectAllCategory();
         request.setAttribute("category", categoryList);
         response.sendRedirect("/category");

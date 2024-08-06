@@ -28,6 +28,7 @@ select *
 from danhmuc;
 drop table danhmuc;
 
+
 CREATE TABLE vitien
 (
     MaVitien     INT AUTO_INCREMENT PRIMARY KEY,

@@ -48,7 +48,7 @@
             </caption>
             <tr>
                 <th>Name:</th>
-                <td><input type="text" name="name" required/></td>
+                <td><input type="text" name="name" size="45" required/></td>
             </tr>
             <tr>
                 <th>Note:</th>
