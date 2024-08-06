@@ -11,6 +11,6 @@ import java.io.IOException;
 public class TransactionManagement extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("/view/transaction_management/transactionManagement.jsp").forward(req, resp);
+resp.sendRedirect("/showAllTransaction");
     }
 }

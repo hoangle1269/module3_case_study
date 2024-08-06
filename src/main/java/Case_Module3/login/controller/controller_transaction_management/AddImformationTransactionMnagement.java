@@ -13,8 +13,8 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-@WebServlet(name = "addInformationTransactionManagement", urlPatterns = "/addInformationTransactionManagement")
-public class AddInformationTransactionManagement extends HttpServlet {
+@WebServlet(name = "addImformationTransactionMnagement", urlPatterns = "/addImformationTransactionMnagement")
+public class AddImformationTransactionMnagement extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
@@ -23,6 +23,7 @@ public class AddInformationTransactionManagement extends HttpServlet {
         long money = Long.parseLong(req.getParameter("money"));
         long codeWallet = Long.parseLong(req.getParameter("codeWallet"));
         int idWallet = 0;
+        long moneys = 0;
         try {
             idWallet = EWalletsDao.checkIdWallet(codeWallet);
         } catch (ClassNotFoundException e) {
@@ -34,6 +35,14 @@ public class AddInformationTransactionManagement extends HttpServlet {
         LocalDateTime now = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String formattedDateTime = now.format(formatter);
+        long checkMoney = EWalletsDao.checkMoney(idWallet);
+        if (checkMoney == 0) {
+            EWalletsDao.setMoney(moneys, idWallet);
+        }
+        if (type.equals("chi")) {
+            money = -money;
+        }
+        EWalletsDao.updateWalletMoney(money, idWallet);
         try {
             TransactionDao.addTransaction(idUser, idWallet, money, note, type, dayTrading, formattedDateTime);
         } catch (ClassNotFoundException e) {

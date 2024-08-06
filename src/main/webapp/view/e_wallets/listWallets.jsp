@@ -11,22 +11,21 @@
 
 <html>
 <head>
-    <title>LIST WALLET</title>
-    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
+    <title>Title</title>
     <link rel="stylesheet" type="text/css" href="/view/e_wallets/listWallets.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <style>
         :root {
-            --primary-light: #8e8aff; /* Màu chính sáng */
-            --primary: #655dff; /* Màu chính */
-            --primary-dark: #4f46f8; /* Màu chính tối */
-            --secondary: #17c9ff; /* Màu phụ */
-            --alert: #ff6a96; /* Màu cảnh báo */
-            --greyLight-1: #e0ecf7; /* Xám sáng 1 */
-            --greyLight-2: #c8dbf0; /* Xám sáng 2 */
-            --greyDark-1: #92acc4; /* Xám tối 1 */
-            --greyDark-2: #5a768f; /* Xám tối 2 */
+            --primary-light: #8e8aff;
+            --primary: #655dff;
+            --primary-dark: #4f46f8;
+            --secondary: #17c9ff;
+            --alert: #ff6a96;
+            --greyLight-1: #e0ecf7;
+            --greyLight-2: #c8dbf0;
+            --greyDark-1: #92acc4;
+            --greyDark-2: #5a768f;
         }
         *, *::before, *::after {
             margin: 0;
@@ -177,12 +176,10 @@
             display: flex;
             margin: auto;
             padding: 5px;
-            margin-top: 10px;
-            width: 25%;
             transition: all 0.3s ease;
             position: absolute;
-            margin-left: 73%;
-            margin-top: 24%;
+            margin-left: 65%;
+            margin-top: -25%;
         }
         .form__btns:hover {
             background: var(--primary-dark);
@@ -228,10 +225,14 @@
         .input-field {
             position: absolute;
             top: 40px;
-            left: 167px;
-            width: 246px;
             padding: 10px;
             z-index: 2;
+            font-size: 2rem;
+            width: 100%;
+            left: 12rem;
+        }
+        .addMoney{
+            display: none;
         }
 
     </style>
@@ -251,7 +252,7 @@
                 <li class="u-nav-item"><a class="u-button-style u-nav-link" href="<%=request.getContextPath()%>/transactionManagement">Trang cá nhân</a>
                 </li>
                 <li class="u-nav-item"><a class="u-button-style u-nav-link"
-                                          href="#">Danh mục</a>
+                                          href="<%=request.getContextPath()%>/category">Danh mục</a>
                 </li>
                 <li class="u-nav-item"><a class="u-button-style u-nav-link" href="<%=request.getContextPath()%>/logout">Đăng
                     xuất</a>
@@ -335,10 +336,10 @@
                               fill="#FFFFFF"></path>
                   </svg>
                 </div>
-<%--                <div>--%>
-<%--                <input type="text" class="input-field" placeholder="Enter text here">--%>
-<%--                <a href="#" class="form__btns listWallets ">Nạp tiền</a>--%>
-<%--                </div>--%>
+                <div class="addMoney">
+                <input type="text" class="input-field" placeholder="Enter text here">
+                <a href="#" class="form__btns listWallets ">Xác Nhận</a>
+                </div>
                 <div class="card__number">${codeWallet}</div>
                 <div class="card__name">
                     <h3>Card Holder</h3>
@@ -353,7 +354,7 @@
                 </div>
             </div>
             <div>
-                <a href="#" class="form__btn listWallets">Nạp tiền</a>
+                <a href="<%=request.getContextPath()%>/insertWalletMoney?idWallet=${idWallet}" class="form__btn listWallets">Nạp tiền</a>
                 <a href="<%=request.getContextPath()%>/showWalletInformationWhereId?idwallet=${idWallet}" class="form__btn listWallets">Chi tiết</a>
             </div>
         </div>
@@ -367,16 +368,15 @@
         <a class="listWallets" href="<%=request.getContextPath()%>/controllerAddEWallets">them tai khoan</a>
     </div>
 </section>
-<footer class="footer u-align-center u-clearfix" id="sec-aa0c">
-    <div class="container u-clearfix">
+<footer class="u-align-center u-clearfix " id="sec-aa0c">
+    <div class="u-clearfix">
         <p class="u-align-center u-small-text u-text">
-            <span class="u-active-none u-border-none u-btn u-button-link u-button-style-a" href="#">
-                Trang quản lý tài chính cá nhân<br>
-                © 2024 Tài liệu được cung cấp bởi Team CG2<br>
-                Liên hệ: <a href="mailto:support@yourfinancialsite.com">support@yourfinancialsite.com</a><br>
-                Địa chỉ: Codegym, 23 TT1 Hàm Nghi, Mỹ Đình, Hà Nội<br>
-                Website: <a href="http://localhost:8080/">http://localhost:8080/</a>
-            </span>
+            <a class="u-active-none u-border-none u-btn u-button-link u-button-style-a " data-href="#"> Trang quản lý
+                tài chính cá nhân&nbsp;<br>© 2024 Tài liệu được cung cấp bởi [Hà Văn Hiện]<br>&nbsp;Liên hệ:
+                [support@yourfinancialsite.com]<br>&nbsp;Địa chỉ: [codegym,26 Hàm nghi,Mỹ đình, Hà Nội]&nbsp;<br>Website:
+                [Đường dẫn đến trang web của bạn]
+                ---
+            </a>
         </p>
     </div>
 </footer>

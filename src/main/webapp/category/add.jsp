@@ -27,7 +27,7 @@
                                           href="<%=request.getContextPath()%>/transactionManagement">Trang cá nhân</a>
                 </li>
                 <li class="u-nav-item"><a class="u-button-style u-nav-link"
-                                          href="<%=request.getContextPath()%>/categoryService">Danh mục</a>
+                                          href="<%=request.getContextPath()%>category">Danh mục</a>
                 </li>
                 <li class="u-nav-item"><a class="u-button-style u-nav-link" href="<%=request.getContextPath()%>/logout">Đăng
                     xuất</a>
@@ -39,9 +39,6 @@
 </div>
 <center>
     <h1>Category Management</h1>
-    <h2>
-        <a href="<%=request.getContextPath()%>/category?action=category">List All Category</a>
-    </h2>
 </center>
 <div align="center">
     <form method="post">

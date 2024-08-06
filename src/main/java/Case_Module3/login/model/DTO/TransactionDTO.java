@@ -10,7 +10,7 @@ public class TransactionDTO {
     String type;
     String dayTrading;
     String dateCreated;
-    String LatestDate;
+    String latestDate;
 
     public TransactionDTO() {
     }
@@ -25,7 +25,7 @@ public class TransactionDTO {
         this.type = type;
         this.dayTrading = dayTrading;
         this.dateCreated = dateCreated;
-        this.LatestDate = latestDate;
+        this.latestDate = latestDate;
     }
 
     public int getIdTransaction() {
@@ -101,11 +101,11 @@ public class TransactionDTO {
     }
 
     public String getLatestDate() {
-        return LatestDate;
+        return latestDate;
     }
 
     public void setLatestDate(String latestDate) {
-        LatestDate = latestDate;
+        this.latestDate = latestDate;
     }
 
     @Override
@@ -120,7 +120,7 @@ public class TransactionDTO {
                 ", type='" + type + '\'' +
                 ", dayTrading='" + dayTrading + '\'' +
                 ", dateCreated='" + dateCreated + '\'' +
-                ", LatestDate='" + LatestDate + '\'' +
+                ", LatestDate='" + latestDate + '\'' +
                 '}';
     }
 }

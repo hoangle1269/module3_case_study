@@ -28,7 +28,7 @@
                                           href="<%=request.getContextPath()%>/transactionManagement">Trang cá nhân</a>
                 </li>
                 <li class="u-nav-item"><a class="u-button-style u-nav-link"
-                                          href="<%=request.getContextPath()%>/categoryService">Danh mục</a>
+                                          href="<%=request.getContextPath()%>category">Danh mục</a>
                 </li>
                 <li class="u-nav-item"><a class="u-button-style u-nav-link" href="<%=request.getContextPath()%>/logout">Đăng
                     xuất</a>

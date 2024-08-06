@@ -20,7 +20,7 @@ public class AddUserInformation extends HttpServlet {
         String address = req.getParameter("address");
         HttpSession session = req.getSession();
         String email = (String) session.getAttribute("userEmail");
-        UserDao.addUserInformation(name, age, phoneNumber, address, email);
-        resp.sendRedirect("/products");
+        UserDao.addUserInfomation(name,age,phoneNumber,address,email);
+resp.sendRedirect("/controllerHomePage");
     }
 }

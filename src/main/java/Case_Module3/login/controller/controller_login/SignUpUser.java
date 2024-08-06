@@ -9,7 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "singUpUser", urlPatterns = "/SignUp")
+@WebServlet(name = "SingUpUser", urlPatterns = "/SignUp")
 public class SignUpUser extends HttpServlet {
 
     @Override
@@ -18,25 +18,25 @@ public class SignUpUser extends HttpServlet {
         String password = req.getParameter("password");
         String passwordConfirm = req.getParameter("password-confirm");
         boolean checkPassword = false;
-        boolean checkAccountSignUpUser;
-
+        boolean checkAccountsignUpUser;
+        //Check 2 registration passwords
         if (!password.equals(passwordConfirm)) {
             req.setAttribute("errorPassword", checkPassword);
             req.getRequestDispatcher("view/login/login.jsp").forward(req, resp);
             return;
         }
-
+        //Check the registered user account
         try {
-            checkAccountSignUpUser = UserDao.checkAccountSignUpUser(email);
+            checkAccountsignUpUser = UserDao.checkAccountsignUpUser(email);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        if (!checkAccountSignUpUser) {
-            req.setAttribute("errorEmail", checkAccountSignUpUser);
+        if (!checkAccountsignUpUser) {
+            req.setAttribute("errorEmail", checkAccountsignUpUser);
             req.getRequestDispatcher("view/login/login.jsp").forward(req, resp);
             return;
         }
-
+        //Register a new user
         UserDao.signUpUser(email, password);
         req.getRequestDispatcher("view/login/login.jsp").forward(req, resp);
     }

@@ -24,7 +24,7 @@ public class CategoryService extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        if (action == null){
+        if (action == null) {
             action = "";
         }
         try {
@@ -92,8 +92,7 @@ public class CategoryService extends HttpServlet {
 
         Category newCategory = new Category(name, notes);
         categoryDAO.addCategory(newCategory);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("category/add.jsp");
-        dispatcher.forward(request, response);
+        response.sendRedirect("category");
     }
 
 
@@ -113,8 +112,7 @@ public class CategoryService extends HttpServlet {
         categoryDAO.deleteCategory(id);
         List<Category> categoryList = categoryDAO.selectAllCategory();
         request.setAttribute("category", categoryList);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("category/list.jsp");
-        dispatcher.forward(request, response);
+        response.sendRedirect("/category");
     }
 }
 

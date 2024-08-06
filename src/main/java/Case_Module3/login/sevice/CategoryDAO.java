@@ -7,9 +7,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryDAO implements ICategory {
-    private String jdbcUrl = "jdbc:mysql://localhost:3306/tai_chinh";
+    private String jdbcUrl = "jdbc:mysql://localhost:3306/quan-ly-tai-chinh";
     private String jdbcUsername = "root";
-    private String jdbcPassword = "12345@abc";
+    private String jdbcPassword = "";
 
     private static final String SELECT_ALL_CATEGORIES = "SELECT * FROM danhmuc;";
     private static final String INSERT_CATEGORY_SQL = "INSERT INTO danhmuc (Ten, GhiChu) VALUES (?,?);";
@@ -94,7 +94,7 @@ public class CategoryDAO implements ICategory {
                 Timestamp updatedAt = resultSet.getTimestamp("NgayCapNhat");
                 category = new Category(categoryId, userId, name, note, createdAt, updatedAt);
             }
-        }catch (SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return category;
