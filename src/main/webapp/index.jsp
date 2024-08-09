@@ -42,18 +42,16 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="login">Login</a>
-            </li>
-        </ul>
     </div>
 </nav>
 
 
 <div class="container mt-5">
     <h1>Chào mừng bạn đến với trang web quản lý tài chính cá nhân</h1>
-    <p>Money money money</p>
+
+    <div class="mt-3">
+        <a class="btn btn-primary" href="login" role="button">Đăng nhập</a>
+    </div>
 </div>
 
 
@@ -65,7 +63,7 @@
                 © 2024 Tài liệu được cung cấp bởi Team CG2<br>
                 Liên hệ: <a href="mailto:support@yourfinancialsite.com">support@yourfinancialsite.com</a><br>
                 Địa chỉ: Codegym, 23 TT1 Hàm Nghi, Mỹ Đình, Hà Nội<br>
-                Website: <a href="http://localhost:8080/">http://localhost:8080/</a>
+                Website: <a href="http://localhost:8080/">Link</a>
             </a>
         </p>
     </div>

@@ -19,24 +19,24 @@ public class Login extends HttpServlet {
         HttpSession session = req.getSession();
         session.setAttribute("userEmail", email);
         //Check Account Password
-        boolean checkAccout;
+        boolean checkAccount;
         try {
-            checkAccout = UserDao.checkAccount(email, password);
+            checkAccount = UserDao.checkAccount(email, password);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
         //if true
         boolean checkInformation = UserDao.checkUserInfomation(email);
-        if (checkAccout && !checkInformation) {
+        if (checkAccount && !checkInformation) {
             resp.sendRedirect("/userInformation");
             return;
         }
-        if (checkAccout) {
+        if (checkAccount) {
             resp.sendRedirect("/controllerHomePage");
             return;
         }
         //if false
-        req.setAttribute("errorLogin", checkAccout);
+        req.setAttribute("errorLogin", checkAccount);
         req.getRequestDispatcher("view/login/login.jsp").forward(req, resp);
 
     }

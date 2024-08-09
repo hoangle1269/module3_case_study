@@ -13,7 +13,7 @@ import java.io.IOException;
 public class DeleteTransaction extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-int idTransaction = Integer.parseInt(req.getParameter("idTransaction"));
+        int idTransaction = Integer.parseInt(req.getParameter("idTransaction"));
         try {
             TransactionDao.deleteTransaction(idTransaction);
         } catch (ClassNotFoundException e) {

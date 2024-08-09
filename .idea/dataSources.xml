@@ -1,15 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-<<<<<<< Updated upstream
-    <data-source source="LOCAL" name="quan_ly_tai_chinh2@localhost" uuid="8fd17eaf-2a4c-4251-8970-98c20da95f33">
-=======
-    <data-source source="LOCAL" name="quan_ly_tai_chinh" uuid="838be1dc-0d06-4d46-a26e-a739398e572b">
->>>>>>> Stashed changes
+    <data-source source="LOCAL" name="quan_ly_tai_chinh2@localhost" uuid="8a356254-1804-469d-afcd-98c168d8e7dc">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/quan_ly_tai_chinh2</jdbc-url>
       <jdbc-additional-properties>
         <property name="com.intellij.clouds.kubernetes.db.host.port" />
         <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />

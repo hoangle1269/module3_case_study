@@ -1,4 +1,4 @@
-package Case_Module3.login.sevice;
+package Case_Module3.login.service;
 
 
 import Case_Module3.login.model.DTO.Category;

@@ -1,7 +1,7 @@
 package Case_Module3.login.controller.controller_category;
 
 import Case_Module3.login.model.DTO.Category;
-import Case_Module3.login.sevice.CategoryDAO;
+import Case_Module3.login.service.CategoryDAO;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -15,7 +15,7 @@ import java.util.List;
 
 @WebServlet(name = "categoryService", urlPatterns = "/category")
 public class CategoryService extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+
     private CategoryDAO categoryDAO;
 
     public void init() {
@@ -103,8 +103,8 @@ public class CategoryService extends HttpServlet {
 
         Category updatedCategory = new Category(categoryId, name, notes);
         categoryDAO.updateCategory(updatedCategory);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("category/edit.jsp");
-        dispatcher.forward(request, response);
+
+        response.sendRedirect(request.getContextPath() + "/category");
     }
 
     private void deleteCategory(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, SQLException {

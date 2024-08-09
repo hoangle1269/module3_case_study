@@ -1,92 +1,85 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: minhquan
-  Date: 05/08/2024
-  Time: 14:27
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <head>
     <title>Edit Category</title>
-    <link rel="stylesheet" href="category/add.css">
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+            crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="/view/home/home.css">
 </head>
 <body>
-<div>
-    <div class="start">
-        <div>
-            <div class="u-menu-close"></div>
-            <ul class="u-nav">
-                <li class="u-nav-item"><a class="u-button-style u-nav-link"
-                                          href="<%=request.getContextPath()%>/controllerHomePage">Trang chủ</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">My Finance Manager</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link"
+                                        href="<%=request.getContextPath()%>/controllerHomePage">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/controllerHomeListWallet">My
+                    Wallets</a></li>
+                <li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/transactionManagement">Profile</a>
                 </li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link"
-                                          href="<%=request.getContextPath()%>/controllerHomeListWallet">Ví của tôi</a>
+                <li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/category">Categories</a>
                 </li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link"
-                                          href="<%=request.getContextPath()%>/transactionManagement">Trang cá nhân</a>
-                </li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link"
-                                          href="<%=request.getContextPath()%>/categoryService">Danh mục</a>
-                </li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="<%=request.getContextPath()%>/logout">Đăng
-                    xuất</a>
-                </li>
+                <li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/logout">Logout</a></li>
             </ul>
         </div>
     </div>
-    <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+</nav>
+
+<div class="header bg-success text-white text-center py-3">
+    <h1>Edit Your Categories</h1>
 </div>
-<center>
-    <h1>Edit Category</h1>
-    <h2>
-        <a href="category?action=category">List All Category</a>
-    </h2>
-</center>
-<div align="center">
-    <form method="post">
-        <table border="1" cellpadding="5">
-            <caption>
-                <h2>
-                    Edit Category
-                </h2>
-            </caption>
-            <c:if test="${category != null}">
-                <input type="hidden" name="categoryId" value="<c:out value='${category.categoryId}' />"/>
-            </c:if>
-            <tr>
-                <th>Name:</th>
-                <td>
-                    <input type="text" name="name" size="45" value="<c:out value='${category.name}' />" required/>
-                </td>
-            </tr>
-            <tr>
-                <th>Note:</th>
-                <td>
-                    <input name="notes" rows="4" cols="50" value="<c:out value='${category.notes}'/>" required/>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" align="center">
-                    <input type="submit" value="Save"/>
-                </td>
-            </tr>
-        </table>
-    </form>
+
+<div class="content container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <h2 class="text-center">Edit Category</h2>
+            <form method="post">
+                <c:if test="${category != null}">
+                    <input type="hidden" name="categoryId" value="<c:out value='${category.categoryId}' />"/>
+                </c:if>
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="text" name="name" class="form-control" id="name"
+                           value="<c:out value='${category.name}' />" required>
+                </div>
+                <div class="mb-3">
+                    <label for="notes" class="form-label">Note:</label>
+                    <input type="text" name="notes" class="form-control" id="notes"
+                           value="<c:out value='${category.notes}' />" required>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-success">Save</button>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
-<footer class="u-align-center u-clearfix " id="sec-aa0c">
-    <div class="u-clearfix">
-        <p class="u-align-center u-small-text u-text">
-            <a class="u-active-none u-border-none u-btn u-button-link u-button-style-a " data-href="#"> Trang quản lý
-                tài chính cá nhân&nbsp;<br>© 2024 Tài liệu được cung cấp bởi [Hà Văn Hiện]<br>&nbsp;Liên hệ:
-                [support@yourfinancialsite.com]<br>&nbsp;Địa chỉ: [codegym,26 Hàm nghi,Mỹ đình, Hà Nội]&nbsp;<br>Website:
-                [Đường dẫn đến trang web của bạn]
-                ---
-            </a>
+
+<footer class="footer bg-dark text-white py-4">
+    <div class="container text-center">
+        <p>
+            Personal Finance Management System<br>
+            © 2024 Provided by Team CG2<br>
+            Contact: <a href="mailto:support@yourfinancialsite.com"
+                        class="text-success">support@yourfinancialsite.com</a><br>
+            Address: Codegym, 23 TT1 Hàm Nghi, Mỹ Đình, Hà Nội<br>
+            Website: <a href="http://localhost:8080/" class="text-success">http://localhost:8080/</a>
         </p>
     </div>
 </footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.2/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
-

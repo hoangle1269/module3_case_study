@@ -1,4 +1,4 @@
-package Case_Module3.login.sevice;
+package Case_Module3.login.service;
 
 import Case_Module3.login.model.DTO.Category;
 
@@ -7,13 +7,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CategoryDAO implements ICategory {
-    private String jdbcUrl = "jdbc:mysql://localhost:3306/tai_chinh";
+    private String jdbcUrl = "jdbc:mysql://localhost:3306/quan_ly_tai_chinh2";
     private String jdbcUsername = "root";
-    private String jdbcPassword = "12345@abc";
+    private String jdbcPassword = "123456@";
 
     private static final String SELECT_ALL_CATEGORIES = "SELECT * FROM danhmuc;";
     private static final String INSERT_CATEGORY_SQL = "INSERT INTO danhmuc (Ten, GhiChu) VALUES (?,?);";
-    private static final String UPDATE_CATEGORY_SQL = "UPDATE danhmuc SET Ten=?, GhiChu=? WHERE categoryId=?;";
+    private static final String UPDATE_CATEGORY_SQL = "UPDATE danhmuc SET Ten=?, GhiChu=? WHERE MaDanhMuc=?;";
     private static final String DELETE_CATEGORY_SQL = "DELETE FROM danhmuc WHERE MaDanhMuc=?;";
     private static final String SELECT_CATEGORY_BY_ID = "SELECT * FROM danhmuc WHERE MaDanhMuc=?;";
 
@@ -106,6 +106,7 @@ public class CategoryDAO implements ICategory {
         try (Connection connection = getConnection(); PreparedStatement statement = connection.prepareStatement(UPDATE_CATEGORY_SQL)) {
             statement.setString(1, category.getName());
             statement.setString(2, category.getNotes());
+            statement.setInt(3, category.getCategoryId());
             rowUpdated = statement.executeUpdate() > 0;
         }
         return rowUpdated;

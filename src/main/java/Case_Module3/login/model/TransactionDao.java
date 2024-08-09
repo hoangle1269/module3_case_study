@@ -1,8 +1,7 @@
 package Case_Module3.login.model;
 
 import Case_Module3.login.model.DTO.TransactionDTO;
-import Case_Module3.login.model.DTO.WalletDTO;
-import Case_Module3.login.sevice.DBConnection;
+import Case_Module3.login.service.DBConnection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

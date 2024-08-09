@@ -16,7 +16,7 @@ import java.util.List;
 public class ShowTransactionWhereDayNow extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<TransactionDTO> listTransaction;
+        List<TransactionDTO> listTransaction = new ArrayList<TransactionDTO>();
         String day = req.getParameter("dayNow");
         listTransaction = TransactionDao.showTransactionWhereDayNow(day);
         List<Long> limbAndAutumn = new ArrayList<Long>();

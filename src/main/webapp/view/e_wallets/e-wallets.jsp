@@ -5,10 +5,11 @@
   Time: 10:15 PM
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>Title</title>
+    <title>ADD WALLET</title>
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="/view/e_wallets/e-wallets.css">
     <style>
         .u-button-style {
@@ -78,33 +79,32 @@
     </style>
 </head>
 <body>
+
 <div>
     <div class="start">
         <div>
             <div class="u-menu-close"></div>
             <ul class="u-nav">
                 <li class="u-nav-item"><a class="u-button-style u-nav-link"
-                                          href="<%=request.getContextPath()%>/controllerHomePage">Trang chủ</a>
+                                          href="<%=request.getContextPath()%>/controllerHomePage">Home</a>
                 </li>
                 <li class="u-nav-item"><a class="u-button-style u-nav-link"
-                                          href="<%=request.getContextPath()%>/controllerHomeListWallet">Ví của tôi</a>
+                                          href="<%=request.getContextPath()%>/controllerHomeListWallet">My wallet</a>
                 </li>
                 <li class="u-nav-item"><a class="u-button-style u-nav-link"
-                                          href="<%=request.getContextPath()%>/transactionManagement">Trang cá nhân</a>
+                                          href="<%=request.getContextPath()%>/transactionManagement">Profile</a>
                 </li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link"  href="<%=request.getContextPath()%>/category">Danh mục</a>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link"  href="<%=request.getContextPath()%>/category">Categories</a>
                 </li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="<%=request.getContextPath()%>/logout">Đăng
-                    xuất</a>
+                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="<%=request.getContextPath()%>/logout">Log out</a>
                 </li>
             </ul>
         </div>
     </div>
     <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
 </div>
+
 <hr>
-</nav>
-</div></header>
 <section id="carousel_c3ca">
     <div class="container">
         <div class="payment">
@@ -256,18 +256,19 @@
         </a>
     </div>
     <script src="/view/e_wallets/e-wallets.js"></script>
-</section>
-<footer class="u-align-center u-clearfix " id="sec-aa0c">
-    <div class="u-clearfix">
-        <p class="u-align-center u-small-text u-text">
-            <a class="u-active-none u-border-none u-btn u-button-link u-button-style-a " data-href="#"> Trang quản lý
-                tài chính cá nhân&nbsp;<br>© 2024 Tài liệu được cung cấp bởi [Hà Văn Hiện]<br>&nbsp;Liên hệ:
-                [support@yourfinancialsite.com]<br>&nbsp;Địa chỉ: [codegym,26 Hàm nghi,Mỹ đình, Hà Nội]&nbsp;<br>Website:
-                [Đường dẫn đến trang web của bạn]
-                ---
-            </a>
-        </p>
-    </div>
-</footer>
+
+<%--<footer class="footer u-align-center u-clearfix" id="sec-aa0c">--%>
+<%--    <div class="container u-clearfix">--%>
+<%--        <p class="u-align-center u-small-text u-text">--%>
+<%--            <a class="u-active-none u-border-none u-btn u-button-link u-button-style-a" href="#">--%>
+<%--                Trang quản lý tài chính cá nhân<br>--%>
+<%--                © 2024 Tài liệu được cung cấp bởi Team CG2<br>--%>
+<%--                Liên hệ: <a href="mailto:support@yourfinancialsite.com">support@yourfinancialsite.com</a><br>--%>
+<%--                Địa chỉ: Codegym, 23 TT1 Hàm Nghi, Mỹ Đình, Hà Nội<br>--%>
+<%--                Website: <a href="http://localhost:8080/">http://localhost:8080/</a>--%>
+<%--            </a>--%>
+<%--        </p>--%>
+<%--    </div>--%>
+<%--</footer>--%>
 </body>
 </html>

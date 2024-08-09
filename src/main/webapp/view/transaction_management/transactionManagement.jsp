@@ -12,6 +12,7 @@
 <html>
 <head>
     <title>home</title>
+    <link rel="icon" href="/img/favicon.png" type="image/x-icon">
     <link rel="stylesheet" type="text/css" href="/view/home/home.css">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -25,33 +26,30 @@
     </style>
 </head>
 <body>
-<div>
-    <div class="start">
-        <div>
-            <div class="u-menu-close"></div>
-            <ul class="u-nav">
-                <li class="u-nav-item"><a class="u-button-style u-nav-link"
-                                          href="<%=request.getContextPath()%>/controllerHomePage">Trang chủ</a>
-                </li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link"
-                                          href="<%=request.getContextPath()%>/controllerHomeListWallet">Ví của tôi</a>
-                </li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link"
-                                          href="<%=request.getContextPath()%>/transactionManagement">Trang cá nhân</a>
-                </li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link"  href="<%=request.getContextPath()%>/category">Danh mục</a>
-                </li>
-                <li class="u-nav-item"><a class="u-button-style u-nav-link" href="<%=request.getContextPath()%>/logout">Đăng
-                    xuất</a>
-                </li>
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">My Finance Manager</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class=" navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/controllerHomePage">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/controllerHomeListWallet">My Wallets</a></li>
+                <li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/transactionManagement">Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/category">Categories</a></li>
+                <li class="nav-item"><a class="nav-link" href="<%=request.getContextPath()%>/logout">Logout</a></li>
             </ul>
         </div>
     </div>
-    <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
-</div>
-<hr>
 </nav>
-</div></header>
+
+
+
+<hr>
+
+
 <section id="carousel_c3ca">
     <div>
         <h1 style="display: flex;justify-content: center;font-size: 3rem;font-family: auto;" class="text-black">Thông
@@ -89,71 +87,133 @@
                 <th class="text-success text-center initialism">Loại giao dịch</th>
                 <th class="text-success text-center initialism">Ngay giao dịch</th>
                 <th class="text-success text-center initialism">Ngày tạo</th>
-                <th class="text-success text-center initialism">Ngày Cập nhật</th>
-                <th class="text-success text-center initialism">Ghi Chú</th>
+                <th class="text-success text-center initialism">Ngày cập nhật</th>
+                <th class="text-success text-center initialism">Ghi chú</th>
             </tr>
             <c:forEach var="transaction" items="${listTransactions}">
                 <form action="<%=request.getContextPath()%>/updateTransaction?idTransaction=${transaction.idTransaction}"
                       method="post">
-                    <tr>
-                        <td class="text-center "><c:out value="${transaction.category}"/>
-                            <input class="editTransaction text-center " placeholder="Tên danh mục" type="text"
-                                   name="idDirectory">
-                        </td>
-                        <td class="text-center"><c:out value="${transaction.money} VND"/>
-                            <input class="editTransaction text-center" placeholder="Số tiền" type=number name="money">
-                        </td>
-                        <td class="text-center "><c:out value="${transaction.type}"/>
-                            <select class="editTransaction text-center "
-                                    name="type">
-                                <option disabled selected value="0">loại giao dịch</option>
-                                <option value="thu">thu</option>
-                                <option value="chi">chi</option>
-                            </select></td>
-                        <td class="text-center "><c:out value="${transaction.dayTrading}"/>
-                            <input
-                                    class="editTransaction text-center " name="dayTrading"
-                                    id="dayTrading"
-                                    type="date"
-                            /></td>
-                        <td class="text-center "><c:out value="${transaction.dateCreated}"/>
-                            <input
-                                    class="editTransaction text-center " name="dateCreated"
-                                    id="day"
-                                    type="date"
-                            /></td>
-                        <td class="text-center "><c:out value="${transaction.latestDate}"/>
-                            <input
-                                    class="editTransaction text-center " name="latestDate"
-                                    id="dayUpDate"
-                                    type="date"
-                            /></td>
-                        <td class="text-center "><c:out value="${transaction.note}"/>
-                            <textarea
-                                    placeholder="Mô tả giao dịch" name="note"
-                                    class="editTransaction text-center"
-                                    id="story-output"
-                            ></textarea></td>
-                        <td class="text-center " style="display: flex;flex-direction: row;width: 100%;">
-                            <a href="#" class="form__btn listWallets " id="editTransaction">Chỉnh sửa</a>
-                            <input type="submit" class="form__btn listWallets editTransaction " id="oki" value="Xong">
-                            <a class="form__btn listWallets editTransaction " id="done"
-                               href="<%=request.getContextPath()%>/transactionManagement">Hủy</a>
-                            <a class="form__btn listWallets " onclick="dodelete(${transaction.idTransaction})">Xóa</a>
-                        </td>
-                    </tr>
+                    <c:if test="${(transaction.type).equals('thu')}">
+
+                        <tr>
+                            <td class="text-center bg-success"><c:out value="${transaction.category}"/>
+                                <input class="editTransaction bg-success text-center " placeholder="Tên danh mục"
+                                       type="text"
+                                       name="idDirectory">
+                            </td>
+                            <td class="bg-success" style="text-align: end"><c:out value="${transaction.money} VND"/>
+                                <input class="editTransaction bg-success text-center" placeholder="Số tiền" type=number
+                                       name="money">
+                            </td>
+                            <td class="text-center bg-success"><c:out value="${transaction.type}"/>
+                                <select class="editTransaction bg-success text-center "
+                                        name="type">
+                                    <option disabled selected value="0">loại giao dịch</option>
+                                    <option value="thu">thu</option>
+                                    <option value="chi">chi</option>
+                                </select></td>
+                            <td class="text-center bg-success"><c:out value="${transaction.dayTrading}"/>
+                                <input
+                                        class="editTransaction bg-success text-center " name="dayTrading"
+                                        id="dayTrading"
+                                        type="date"
+                                /></td>
+                            <td class="text-center bg-success"><c:out value="${transaction.dateCreated}"/>
+                                <input
+                                        class="editTransaction bg-success text-center " name="dateCreated"
+                                        id="day"
+                                        type="date"
+                                /></td>
+                            <td class="text-center bg-success"><c:out value="${transaction.latestDate}"/>
+                                <input
+                                        class="editTransaction bg-success text-center " name="latestDate"
+                                        id="dayUpDate"
+                                        type="date"
+                                /></td>
+                            <td class="text-center bg-success"><c:out value="${transaction.note}"/>
+                                <textarea
+                                        placeholder="Mô tả giao dịch" name="note"
+                                        class="editTransaction bg-success  text-center"
+                                        id="story-output"
+                                ></textarea></td>
+                            <td class="text-center bg-secondary" style="display: flex;flex-direction: row;width: 100%;">
+                                <a href="#" class="form__btn listWallets " id="editTransaction">Chỉnh sửa</a>
+                                <input type="submit" class="form__btn listWallets editTransaction " id="oki"
+                                       value="Xong">
+                                <a class="form__btn listWallets editTransaction " id="done"
+                                   href="<%=request.getContextPath()%>/transactionManagement">Hủy</a>
+                                <a class="form__btn listWallets "
+                                   onclick="dodelete(${transaction.idTransaction})">Xóa</a>
+                            </td>
+                        </tr>
+                    </c:if>
+                    <c:if test="${(transaction.type).equals('chi')}">
+
+                        <tr>
+                            <td class="text-center bg-danger"><c:out value="${transaction.category}"/>
+                                <input class="editTransaction  bg-danger text-center " placeholder="Tên danh mục"
+                                       type="text"
+                                       name="idDirectory">
+                            </td>
+                            <td class="bg-danger" style="text-align: end"><c:out value="${transaction.money} VND"/>
+                                <input class="editTransaction  bg-danger text-center" placeholder="Số tiền" type=number
+                                       name="money">
+                            </td>
+                            <td class="text-center bg-danger"><c:out value="${transaction.type}"/>
+                                <select class="editTransaction  bg-danger text-center "
+                                        name="type">
+                                    <option disabled selected value="0">loại giao dịch</option>
+                                    <option value="thu">thu</option>
+                                    <option value="chi">chi</option>
+                                </select></td>
+                            <td class="text-center bg-danger"><c:out value="${transaction.dayTrading}"/>
+                                <input
+                                        class="editTransaction  bg-danger text-center " name="dayTrading"
+                                        id="dayTrading"
+                                        type="date"
+                                /></td>
+                            <td class="text-center bg-danger"><c:out value="${transaction.dateCreated}"/>
+                                <input
+                                        class="editTransaction  bg-danger text-center " name="dateCreated"
+                                        id="day"
+                                        type="date"
+                                /></td>
+                            <td class="text-center bg-danger"><c:out value="${transaction.latestDate}"/>
+                                <input
+                                        class="editTransaction  bg-danger text-center " name="latestDate"
+                                        id="dayUpDate"
+                                        type="date"
+                                /></td>
+                            <td class="text-center bg-danger"><c:out value="${transaction.note}"/>
+                                <textarea
+                                        placeholder="Mô tả giao dịch" name="note"
+                                        class="editTransaction  bg-danger text-center"
+                                        id="story-output"
+                                ></textarea></td>
+                            <td class="text-center bg-secondary "
+                                style="display: flex;flex-direction: row;width: 100%;">
+                                <a href="#" class="form__btn  listWallets " id="editTransaction">Chỉnh sửa</a>
+                                <input type="submit" class="form__btn listWallets editTransaction " id="oki2"
+                                       value="Xong">
+                                <a class="form__btn listWallets editTransaction " id="done2"
+                                   href="<%=request.getContextPath()%>/transactionManagement">Hủy</a>
+                                <a class="form__btn listWallets "
+                                   onclick="dodelete(${transaction.idTransaction})">Xóa</a>
+                            </td>
+                        </tr>
+                    </c:if>
                 </form>
             </c:forEach>
             <c:if test="${limbAndAutumn != null}">
                 <tr>
                     <td class="bg-info text-center">Tổng chi</td>
-                    <td class="text-danger text-center">
+                    <td class="text-danger" style="text-align: end">
                         <pre> ${limbAndAutumn[0]} VND</pre>
                     </td>
                 </tr>
                 <tr>
                     <td class="bg-info text-center">Tổng thu</td>
-                    <td class="text-success text-center">
+                    <td class="text-success" style="text-align: end">
                         <pre>+${limbAndAutumn[1]} VND</pre>
                     </td>
                 </tr>
@@ -218,18 +278,17 @@
     </div>
     <div class="addWallet">
         <STRONG class="mt--addWallet">Bạn muốn thêm khoản giao dịch?</STRONG><br>
-        <p class="mt--addWallet2">Thêm khoản giao dịch của mình để quản lý để quản lý theo dõi dòng tiền của mình.</p>
-        <a id="addTransaction" class="listWallets">Thêm giao
-            dịch</a>
+        <p class="mt--addWallet2">Thêm khoản giao dịch để quản lý để quản lý theo dõi dòng tiền của mình.</p>
+        <a id="addTransaction" class="listWallets">Thêm giao dịch</a>
     </div>
 </section>
-<footer class="u-align-center u-clearfix " id="sec-aa0c">
+<footer class="u-align-center u-clearfix footer bg-dark text-white py-4" id="sec-aa0c" >
     <div class="u-clearfix">
         <p class="u-align-center u-small-text u-text">
             <a class="u-active-none u-border-none u-btn u-button-link u-button-style-a " data-href="#"> Trang quản lý
-                tài chính cá nhân&nbsp;<br>© 2024 Tài liệu được cung cấp bởi [Hà Văn Hiện]<br>&nbsp;Liên hệ:
-                [support@yourfinancialsite.com]<br>&nbsp;Địa chỉ: [codegym,26 Hàm nghi,Mỹ đình, Hà Nội]&nbsp;<br>Website:
-                [Đường dẫn đến aaaaaaaaaaaaa]
+                tài chính cá nhân&nbsp;<br>© 2024 Tài liệu được cung cấp bởi TeamCG2<br>&nbsp;Liên hệ:
+                [support@yourfinancialsite.com]<br>&nbsp;Địa chỉ: [Codegym, 23 TT1 Hàm Nghi,Mỹ đình, Hà Nội]&nbsp;<br>Website:
+                [Đường dẫn]
                 ---
             </a>
         </p>

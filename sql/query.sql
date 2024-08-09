@@ -1,5 +1,5 @@
-create database tai_chinh;
-use tai_chinh;
+# create database tai_chinh;
+# use tai_chinh;
 
 CREATE TABLE users
 (

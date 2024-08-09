@@ -18,7 +18,7 @@ public class SignUpUser extends HttpServlet {
         String password = req.getParameter("password");
         String passwordConfirm = req.getParameter("password-confirm");
         boolean checkPassword = false;
-        boolean checkAccountsignUpUser;
+        boolean checkAccountSignUpUser;
         //Check 2 registration passwords
         if (!password.equals(passwordConfirm)) {
             req.setAttribute("errorPassword", checkPassword);
@@ -27,12 +27,12 @@ public class SignUpUser extends HttpServlet {
         }
         //Check the registered user account
         try {
-            checkAccountsignUpUser = UserDao.checkAccountsignUpUser(email);
+            checkAccountSignUpUser = UserDao.checkAccountsignUpUser(email);
         } catch (ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
-        if (!checkAccountsignUpUser) {
-            req.setAttribute("errorEmail", checkAccountsignUpUser);
+        if (!checkAccountSignUpUser) {
+            req.setAttribute("errorEmail", checkAccountSignUpUser);
             req.getRequestDispatcher("view/login/login.jsp").forward(req, resp);
             return;
         }
