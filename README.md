@@ -64,8 +64,7 @@ Clone the Repository:
 
 bash
 Copy code
-git clone [https://github.com/yourusername/personal-finance-management.git](https://github.com/hoangle1269/module3_case_study/new/finale)
-cd personal-finance-management
+git clone (https://github.com/hoangle1269/module3_case_study/new/finale)
 Set Up Database:
 
 Create a new MySQL database.
